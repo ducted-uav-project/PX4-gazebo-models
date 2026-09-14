@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="moving_boat">
+    <static>false</static>
+    <self_collide>false</self_collide>
+
+    <link name="boat_link">
+      <gravity>false</gravity>
+
+      <inertial>
+        <pose>0 0 0.75 0 0 0</pose>
+        <mass>3900</mass>
+        <inertia>
+          <ixx>2762.5</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>19012.5</iyy>
+          <iyz>0</iyz>
+          <izz>20312.5</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="hull_visual">
+        <pose>0 0 0.75 0 0 0</pose>
+        <geometry><box><size>7.5 2.5 1.5</size></box></geometry>
+        <material><ambient>0.08 0.16 0.25 1</ambient><diffuse>0.10 0.25 0.40 1</diffuse></material>
+      </visual>
+
+      <collision name="hull_collision">
+        <pose>0 0 0.75 0 0 0</pose>
+        <geometry><box><size>7.5 2.5 1.5</size></box></geometry>
+      </collision>
+
+      <!--
+        Hollow docking guide:
+        boat top z = 1.50 m
+        connector tube: inner radius 0.06 m, outer radius 0.072 m, height 0.10 m
+        inverted-truncated-cone guide: bottom inner radius 0.06 m,
+        top inner radius 0.25 m, vertical height 0.25 m
+        Wall thickness 0.012 m; the segmented walls keep the center physically open.
+      -->
+      <visual name="docking_tube_visual_1">
+        <pose>0.066000 0.000000 1.550000 0 0 0.000000</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_1">
+        <pose>0.066000 0.000000 1.550000 0 0 0.000000</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_2">
+        <pose>0.060977 0.025257 1.550000 0 0 0.392699</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_2">
+        <pose>0.060977 0.025257 1.550000 0 0 0.392699</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_3">
+        <pose>0.046669 0.046669 1.550000 0 0 0.785398</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_3">
+        <pose>0.046669 0.046669 1.550000 0 0 0.785398</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_4">
+        <pose>0.025257 0.060977 1.550000 0 0 1.178097</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_4">
+        <pose>0.025257 0.060977 1.550000 0 0 1.178097</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_5">
+        <pose>0.000000 0.066000 1.550000 0 0 1.570796</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_5">
+        <pose>0.000000 0.066000 1.550000 0 0 1.570796</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_6">
+        <pose>-0.025257 0.060977 1.550000 0 0 1.963495</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_6">
+        <pose>-0.025257 0.060977 1.550000 0 0 1.963495</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_7">
+        <pose>-0.046669 0.046669 1.550000 0 0 2.356194</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_7">
+        <pose>-0.046669 0.046669 1.550000 0 0 2.356194</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_8">
+        <pose>-0.060977 0.025257 1.550000 0 0 2.748894</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_8">
+        <pose>-0.060977 0.025257 1.550000 0 0 2.748894</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_9">
+        <pose>-0.066000 0.000000 1.550000 0 0 3.141593</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_9">
+        <pose>-0.066000 0.000000 1.550000 0 0 3.141593</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_10">
+        <pose>-0.060977 -0.025257 1.550000 0 0 3.534292</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_10">
+        <pose>-0.060977 -0.025257 1.550000 0 0 3.534292</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_11">
+        <pose>-0.046669 -0.046669 1.550000 0 0 3.926991</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_11">
+        <pose>-0.046669 -0.046669 1.550000 0 0 3.926991</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_12">
+        <pose>-0.025257 -0.060977 1.550000 0 0 4.319690</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_12">
+        <pose>-0.025257 -0.060977 1.550000 0 0 4.319690</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_13">
+        <pose>-0.000000 -0.066000 1.550000 0 0 4.712389</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_13">
+        <pose>-0.000000 -0.066000 1.550000 0 0 4.712389</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_14">
+        <pose>0.025257 -0.060977 1.550000 0 0 5.105088</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_14">
+        <pose>0.025257 -0.060977 1.550000 0 0 5.105088</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_15">
+        <pose>0.046669 -0.046669 1.550000 0 0 5.497787</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_15">
+        <pose>0.046669 -0.046669 1.550000 0 0 5.497787</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_tube_visual_16">
+        <pose>0.060977 -0.025257 1.550000 0 0 5.890486</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <material><ambient>0.55 0.24 0.04 1</ambient><diffuse>0.80 0.38 0.06 1</diffuse></material>
+      </visual>
+      <collision name="docking_tube_collision_16">
+        <pose>0.060977 -0.025257 1.550000 0 0 5.890486</pose>
+        <geometry><box><size>0.012 0.031329 0.100000</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_1">
+        <pose>0.159777 0.000000 1.725000 0 0.649870 0.000000</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_1">
+        <pose>0.159777 0.000000 1.725000 0 0.649870 0.000000</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_2">
+        <pose>0.154333 0.041353 1.725000 0 0.649870 0.261799</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_2">
+        <pose>0.154333 0.041353 1.725000 0 0.649870 0.261799</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_3">
+        <pose>0.138371 0.079888 1.725000 0 0.649870 0.523599</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_3">
+        <pose>0.138371 0.079888 1.725000 0 0.649870 0.523599</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_4">
+        <pose>0.112979 0.112979 1.725000 0 0.649870 0.785398</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_4">
+        <pose>0.112979 0.112979 1.725000 0 0.649870 0.785398</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_5">
+        <pose>0.079888 0.138371 1.725000 0 0.649870 1.047198</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_5">
+        <pose>0.079888 0.138371 1.725000 0 0.649870 1.047198</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_6">
+        <pose>0.041353 0.154333 1.725000 0 0.649870 1.308997</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_6">
+        <pose>0.041353 0.154333 1.725000 0 0.649870 1.308997</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_7">
+        <pose>0.000000 0.159777 1.725000 0 0.649870 1.570796</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_7">
+        <pose>0.000000 0.159777 1.725000 0 0.649870 1.570796</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_8">
+        <pose>-0.041353 0.154333 1.725000 0 0.649870 1.832596</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_8">
+        <pose>-0.041353 0.154333 1.725000 0 0.649870 1.832596</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_9">
+        <pose>-0.079888 0.138371 1.725000 0 0.649870 2.094395</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_9">
+        <pose>-0.079888 0.138371 1.725000 0 0.649870 2.094395</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_10">
+        <pose>-0.112979 0.112979 1.725000 0 0.649870 2.356194</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_10">
+        <pose>-0.112979 0.112979 1.725000 0 0.649870 2.356194</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_11">
+        <pose>-0.138371 0.079888 1.725000 0 0.649870 2.617994</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_11">
+        <pose>-0.138371 0.079888 1.725000 0 0.649870 2.617994</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_12">
+        <pose>-0.154333 0.041353 1.725000 0 0.649870 2.879793</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_12">
+        <pose>-0.154333 0.041353 1.725000 0 0.649870 2.879793</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_13">
+        <pose>-0.159777 0.000000 1.725000 0 0.649870 3.141593</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_13">
+        <pose>-0.159777 0.000000 1.725000 0 0.649870 3.141593</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_14">
+        <pose>-0.154333 -0.041353 1.725000 0 0.649870 3.403392</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_14">
+        <pose>-0.154333 -0.041353 1.725000 0 0.649870 3.403392</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_15">
+        <pose>-0.138371 -0.079888 1.725000 0 0.649870 3.665191</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_15">
+        <pose>-0.138371 -0.079888 1.725000 0 0.649870 3.665191</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_16">
+        <pose>-0.112979 -0.112979 1.725000 0 0.649870 3.926991</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_16">
+        <pose>-0.112979 -0.112979 1.725000 0 0.649870 3.926991</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_17">
+        <pose>-0.079888 -0.138371 1.725000 0 0.649870 4.188790</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_17">
+        <pose>-0.079888 -0.138371 1.725000 0 0.649870 4.188790</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_18">
+        <pose>-0.041353 -0.154333 1.725000 0 0.649870 4.450590</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_18">
+        <pose>-0.041353 -0.154333 1.725000 0 0.649870 4.450590</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_19">
+        <pose>-0.000000 -0.159777 1.725000 0 0.649870 4.712389</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_19">
+        <pose>-0.000000 -0.159777 1.725000 0 0.649870 4.712389</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_20">
+        <pose>0.041353 -0.154333 1.725000 0 0.649870 4.974188</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_20">
+        <pose>0.041353 -0.154333 1.725000 0 0.649870 4.974188</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_21">
+        <pose>0.079888 -0.138371 1.725000 0 0.649870 5.235988</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_21">
+        <pose>0.079888 -0.138371 1.725000 0 0.649870 5.235988</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_22">
+        <pose>0.112979 -0.112979 1.725000 0 0.649870 5.497787</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_22">
+        <pose>0.112979 -0.112979 1.725000 0 0.649870 5.497787</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_23">
+        <pose>0.138371 -0.079888 1.725000 0 0.649870 5.759587</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_23">
+        <pose>0.138371 -0.079888 1.725000 0 0.649870 5.759587</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+      <visual name="docking_funnel_visual_24">
+        <pose>0.154333 -0.041353 1.725000 0 0.649870 6.021386</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <material><ambient>0.70 0.32 0.05 1</ambient><diffuse>0.95 0.48 0.08 1</diffuse></material>
+      </visual>
+      <collision name="docking_funnel_collision_24">
+        <pose>0.154333 -0.041353 1.725000 0 0.649870 6.021386</pose>
+        <geometry><box><size>0.012 0.069097 0.314006</size></box></geometry>
+        <surface><friction><ode><mu>0.05</mu><mu2>0.05</mu2></ode></friction></surface>
+      </collision>
+    </link>
+
+    <plugin filename="gz-sim-velocity-control-system"
+            name="gz::sim::systems::VelocityControl">
+      <topic>/model/moving_boat/cmd_vel</topic>
+    </plugin>
+  </model>
+</sdf>
