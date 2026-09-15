@@ -348,7 +348,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://ducted_uav_base/meshes/1345_prop_cw.stl</uri>
+            <uri>model://ducted_uav_base/meshes/1345_prop_ccw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -420,7 +420,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://ducted_uav_base/meshes/1345_prop_cw.stl</uri>
+            <uri>model://ducted_uav_base/meshes/1345_prop_ccw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -492,7 +492,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://ducted_uav_base/meshes/1345_prop_ccw.stl</uri>
+            <uri>model://ducted_uav_base/meshes/1345_prop_cw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -564,7 +564,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://ducted_uav_base/meshes/1345_prop_ccw.stl</uri>
+            <uri>model://ducted_uav_base/meshes/1345_prop_cw.stl</uri>
           </mesh>
         </geometry>
         <material>
