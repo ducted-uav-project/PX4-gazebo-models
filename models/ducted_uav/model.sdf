@@ -5,6 +5,12 @@
       <uri>model://ducted_uav_base</uri>
     </include>
 
+    <!-- TEMP TEST: lock UAV base to world for full-throttle motor test -->
+    <joint name="ducted_uav_test_fixed_joint" type="fixed">
+      <parent>world</parent>
+      <child>base_link</child>
+    </joint>
+
     <!-- Custom ducted motor model using measured actuator data -->
     <plugin filename="DuctedMotorModel"
             name="ducted_uav::DuctedMotorModel">
