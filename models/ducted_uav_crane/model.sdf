@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="ducted_uav_crane">
+
+    <include merge="true">
+      <uri>model://ducted_uav_base</uri>
+    </include>
+
+    <!-- Measured ducted motor model -->
+    <plugin filename="DuctedMotorModel"
+            name="ducted_uav::DuctedMotorModel">
+    </plugin>
+
+    <!-- Crane tether model -->
+    <plugin filename="DuctedTetherModel"
+            name="ducted_uav::DuctedTetherModel">
+
+      <length>2.5</length>
+      <stiffness>3000</stiffness>
+      <damping>300</damping>
+      <max_tension>3000</max_tension>
+
+      <attachment_offset>0 0 0.15</attachment_offset>
+
+    </plugin>
+
+  </model>
+</sdf>
